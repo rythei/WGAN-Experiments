@@ -6,28 +6,14 @@ from torch.autograd import Variable
 from torch.nn import functional as F
 from ot_pytorch import sink, pairwise_distances, dmat
 import pandas as pd
+from matplotlib import pyplot as plt
+import time
 
-'''
-class Critic(nn.Module):
-    def __init__(self):
-        super(Critic, self).__init__()
-        self.batch_size = 50
 
-        self.critic = nn.Sequential(
-            nn.Linear(28 * 28, 16 * 16),
-            nn.ReLU(),
-            nn.Linear(16 * 16, 10 * 10),
-            nn.ReLU(),
-            nn.Linear(100, 20),
-            nn.ReLU(),
-            nn.Linear(20, 1)
-        )
+def plot_im(data):
+    plt.imshow(data, interpolation='nearest')
+    plt.show()
 
-    def forward(self, x):
-        fx = self.critic(x)
-
-        return fx
-'''
 
 class SinkGen(nn.Module):
     def __init__(self):
@@ -54,7 +40,7 @@ class SinkGen(nn.Module):
         return x
 
 
-def train(num_epochs = 100, batch_size = 128, learning_rate = 1e-4):
+def train(num_epochs = 100, batch_size = 50, learning_rate = 1e-4):
     train_dataset = dsets.MNIST(root='./data/',  #### testing that it works with MNIST data
                                 train=True,
                                 transform=transforms.ToTensor(),
@@ -81,7 +67,10 @@ def train(num_epochs = 100, batch_size = 128, learning_rate = 1e-4):
 
             # Forward + Backward + Optimize
             xg = sink_gen(z)
-            #test = xg[0].view(28,28)
+            #test = xg[0].view(28,28).data.numpy()
+            #test[test >= .5] = 1
+            #test[test < .5] = 0
+            #plot_im(test)
             #print(test)
             #print(xg[0])
             #print(xg.size())

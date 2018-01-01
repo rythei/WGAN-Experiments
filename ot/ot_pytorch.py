@@ -8,6 +8,8 @@ import numpy as np
 import pandas as pd
 
 
+
+
 def sink(M, reg, numItermax=1000, stopThr=1e-9):
 
     # we assume that no distances are null except those of the diagonal of

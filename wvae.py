@@ -99,7 +99,7 @@ def train(num_epochs = 100, batch_size = 128, learning_rate = 1e-4):
 
     for epoch in range(num_epochs):
         for i, (images, labels) in enumerate(train_loader):
-            x = Variable(images)
+            x = Variable(images).view(28*28,batch_size)
 
             # Forward + Backward + Optimize
             optimizer.zero_grad()

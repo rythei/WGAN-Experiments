@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../KBI/.idea/KBI.iml" filepath="$PROJECT_DIR$/../../KBI/.idea/KBI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../StyleTransfer/.idea/StyleTransfer.iml" filepath="$PROJECT_DIR$/../StyleTransfer/.idea/StyleTransfer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../TriviaHQ/.idea/TriviaHQ.iml" filepath="$PROJECT_DIR$/../TriviaHQ/.idea/TriviaHQ.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/WGAN-Experiments.iml" filepath="$PROJECT_DIR$/.idea/WGAN-Experiments.iml" />
     </modules>
   </component>
